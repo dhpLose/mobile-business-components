@@ -31,7 +31,7 @@ export default {
   flex-direction: column;
   .layout-main {
     flex: 1;
-    background: pink;
+    // background: pink;
     opacity: 0.7;
   }
   .layout-footer {

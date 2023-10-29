@@ -12,6 +12,11 @@ const routes = [
     hidden: true,
   },
   {
+    path: "/function",
+    name: "Function",
+    component: () => import("@/views/ModuleDissipation"),
+  },
+  {
     path: "",
     name: "Layout",
     component: () => import("@/layout"),
