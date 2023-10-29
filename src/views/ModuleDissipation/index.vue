@@ -2,32 +2,40 @@
   <div class="function">
     <van-row gutter="20" class="function-type">
       <van-col span="8" @click="handleDialog">
-        <div class="text">弹窗</div>
+        <div class="text">dialog</div>
       </van-col>
       <van-col span="8">
-        <div class="text">表单</div>
+        <div class="text" @click="handlePopup">popup</div>
       </van-col>
       <van-col span="8">
         <div class="text">表格</div>
       </van-col>
     </van-row>
+    <!-- dialog -->
     <m-dialog title="dialog弹窗" :visible.sync="dialogConfig.visible">
       <div class="dialog-main">
         <div class="search" style="height: 50px">搜索</div>
         <div class="main" style="height: 700px">main</div>
       </div>
     </m-dialog>
+    <!-- popup -->
+    <m-popup :title="popupConfig.title" :visible.sync="popupConfig.visible" round></m-popup>
   </div>
 </template>
 <script>
 export default {
   name: 'ModuleDissipation',
   components: {
-    'm-dialog': () => import('@/components/dialog')
+    'm-dialog': () => import('@/components/dialog'),
+    'm-popup': () => import('@/components/popup')
   },
   data () {
     return {
       dialogConfig: {
+        visible: false
+      },
+      popupConfig: {
+        title: '靓仔',
         visible: false
       }
     }
@@ -35,6 +43,9 @@ export default {
   methods: {
     handleDialog () {
       this.dialogConfig.visible = true
+    },
+    handlePopup () {
+      this.popupConfig.visible = true
     }
   }
 }
